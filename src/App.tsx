@@ -1,29 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import { Provider } from "react-redux"
+import store from './stores/store';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/about">
-            about
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route path="/about">
+              about
           </Route>
-          <Route path="/users">
-            users
+            <Route path="/users">
+              users
           </Route>
-          <Route path="/">
-            home
-          </Route>
-        </Switch>
-      </Router>
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+        </Router>
+      </Provider>
     </div>
   );
 }
