@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import { Provider } from "react-redux"
-import store from './stores/store';
+import store from './store/store';
 import HomePage from './pages/HomePage';
 import Header from "./component/Header"
 
