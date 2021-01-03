@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import Header from "./component/Header";
 import PrivateRoute from "./component/Router/PrivateRoute";
@@ -15,10 +16,10 @@ function App() {
         <Router>
           <Switch>
             <Route path={route.login}>
-              <HomePage />
+              <LoginPage />
             </Route>
             <PrivateRoute redirect={route.login} path={route.home}>
-              <div>"about"</div>
+              <HomePage />
             </PrivateRoute>
           </Switch>
         </Router>

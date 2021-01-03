@@ -11,7 +11,6 @@ interface IPrivateRouteProps {
 
 const PrivateRoute = ({ children, redirect, ...rest }: IPrivateRouteProps) => {
   const { token } = useSelector((state: IState) => state);
-  console.log(token);
   return (
     <Route
       {...rest}

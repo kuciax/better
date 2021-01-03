@@ -1,21 +1,21 @@
-import Home from "../../component/Home";
+import Login from "../../component/Login";
 import styled from "styled-components";
 import Container from "../../component/Container";
 
-interface IHomePageProps {
+interface ILoginPageProps {
   className?: string;
 }
 
-const HomePage = ({ className }: IHomePageProps) => (
+const LoginPage = ({ className }: ILoginPageProps) => (
   <Container className={className}>
-    <Home />
+    <Login />
   </Container>
 );
 
-const StyledHomePage = styled(HomePage)`
+const StyledLoginPage = styled(LoginPage)`
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export default StyledHomePage;
+export default StyledLoginPage;
