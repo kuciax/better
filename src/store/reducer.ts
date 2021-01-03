@@ -6,23 +6,23 @@ export interface IAction {
 }
 
 export interface IState {
-  token: string
+  token: string;
 }
 
 export const initialiState = {
-  token: ""
+  token: "",
 };
 
 const todos = (state: IState = initialiState, action: IAction): IState => {
   switch (action.type) {
-    case SIGN_IN:{
-      console.log(action)
-      return { token: action.payload };}
-    case "ADD_TODO":
+    case SIGN_IN: {
       return { token: action.payload };
+    }
     default:
       return state;
   }
 };
+
+export type RootState = ReturnType<typeof todos>;
 
 export default todos;

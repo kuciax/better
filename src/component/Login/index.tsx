@@ -3,7 +3,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { signIn } from "../../service/userApi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 interface ILoginProps {
   className?: string;
@@ -11,9 +12,11 @@ interface ILoginProps {
 
 const Login = ({ className }: ILoginProps) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(signIn());
+    history.push("/about");
   };
 
   return (

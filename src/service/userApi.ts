@@ -1,7 +1,5 @@
 import axios from "axios";
-import { AnyAaaaRecord, AnyNsRecord } from "dns";
 import { signInSucess } from "../store/actionCreators";
-import { SIGN_IN } from "../store/actions";
 
 const url = "https://thebetter.bsgroup.eu/Authorization/SignIn";
 
