@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getMediaListSucess } from "../store/actionCreators";
+import { IMedia } from "../types/Media";
 
 interface IGetMediaList {
   token: string;
@@ -31,5 +32,20 @@ export const getMediaList = ({ token }: IGetMediaList) => async (
     { ...data },
     { headers: getHeaders(token) }
   );
-  return dispatch(getMediaListSucess(request.data));
+
+  const mapImages = (Images: any) =>
+    Images.map(({ ImageTypeCode, Url }: any) => ({
+      type: ImageTypeCode,
+      url: Url,
+    }));
+
+  const mappedData: IMedia = request.data.Entities.map(
+    ({ Title, Description, Images }: any) => ({
+      title: Title,
+      description: Description,
+      images: mapImages(Images),
+    })
+  );
+
+  return dispatch(getMediaListSucess(mappedData));
 };

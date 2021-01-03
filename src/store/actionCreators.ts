@@ -1,3 +1,4 @@
+import { IMedia } from "../types/Media";
 import { GET_MEDIA_LIST, SIGN_IN } from "./actions";
 
 export const signInSucess = (payload: string) => ({
@@ -5,7 +6,7 @@ export const signInSucess = (payload: string) => ({
   payload,
 });
 
-export const getMediaListSucess = (payload: any) => ({
+export const getMediaListSucess = (payload: IMedia) => ({
   type: GET_MEDIA_LIST,
   payload,
 });
