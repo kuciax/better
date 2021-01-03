@@ -12,7 +12,7 @@ const Container = ({ className, children }: IContainerProps) => (
 );
 
 const StyledContainer = styled(Container)`
-    width: 960px;
+    max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     border: 3px solid #73AD21;`
