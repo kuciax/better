@@ -18,6 +18,8 @@ const MediaList = ({ className }: IMediaList) => {
   );
 };
 
-const StyledMediaList = styled(MediaList)``;
+const StyledMediaList = styled(MediaList)`
+
+`
 
 export default StyledMediaList;
