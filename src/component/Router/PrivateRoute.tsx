@@ -1,7 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { IState } from "../../store/reducer";
-import React from "react";
+import { isTokenValid } from "../../service/localStorage";
 
 interface IPrivateRouteProps {
   children: JSX.Element;
@@ -10,12 +8,11 @@ interface IPrivateRouteProps {
 }
 
 const PrivateRoute = ({ children, redirect, ...rest }: IPrivateRouteProps) => {
-  const { token } = useSelector((state: IState) => state);
   return (
     <Route
       {...rest}
       render={() =>
-        !!token ? (
+        isTokenValid() ? (
           <div>{children}</div>
         ) : (
           <Redirect

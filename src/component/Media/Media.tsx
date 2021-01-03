@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { IMedia } from "../../types/Media";
 import Player from "../Player";
-import {Modal} from "@material-ui/core"
+import { Modal } from "@material-ui/core";
 
 interface IMediaProps {
   media: IMedia;
@@ -12,27 +12,23 @@ interface IMediaProps {
 const Media = ({ media, className }: IMediaProps) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen((prev) => !prev);
-  const { title, images, description, mediaId } = media;
+  const { title, images, mediaId } = media;
   const url = images.find(({ type }) => type === "FRAME")?.url;
-  console.log(open);
   return (
     <div className={className}>
       <div className="container" onClick={handleOpen}>
-        <img src={url} />
+        <img alt={title} src={url} />
         <div className="title">{title}</div>
       </div>
       {open && (
-
-
-<Modal
-open={open}
-onClose={handleOpen}
-aria-labelledby="simple-modal-title"
-aria-describedby="simple-modal-description"
->
-<Player mediaId={mediaId} />
-</Modal>
-     
+        <Modal
+          open={open}
+          onClose={handleOpen}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          <Player mediaId={mediaId} />
+        </Modal>
       )}
     </div>
   );

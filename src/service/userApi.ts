@@ -1,13 +1,8 @@
-import axios from "axios";
-import { signInSucess } from "../store/actionCreators";
+import { fetchSignIn } from "./api/userApi";
+import { setToken } from "./localStorage";
 
-const url = "https://thebetter.bsgroup.eu/Authorization/SignIn";
-
-const headers = {
-  "Content-Type": "application/json",
-};
-
-export const signIn = () => async (dispatch: any) => {
-  const request = await axios.post(url, { headers });
-  return dispatch(signInSucess(request.data.AuthorizationToken.Token));
+export const signIn = async () => {
+  const request = await fetchSignIn();
+  const { Token, TokenExpires } = request.data.AuthorizationToken;
+  setToken(Token, TokenExpires);
 };

@@ -3,7 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { signIn } from "../../service/userApi";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import route from "../../shared/routes";
 
@@ -12,11 +11,10 @@ interface ILoginProps {
 }
 
 const Login = ({ className }: ILoginProps) => {
-  const dispatch = useDispatch();
   const history = useHistory();
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(signIn());
+    await signIn();
     history.push(route.home);
   };
 
