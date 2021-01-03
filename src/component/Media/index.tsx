@@ -9,17 +9,16 @@ interface IMediaList {
 
 const MediaList = ({ className }: IMediaList) => {
   const medias = useSelector(({ medias }: IState) => medias);
+  console.log(medias)
   return (
     <div className={className}>
-      {medias?.map((media) => (
-        <Media media={media} />
+      {medias?.map((media, index) => (
+        <Media media={media} key={index} />
       ))}
     </div>
   );
 };
 
-const StyledMediaList = styled(MediaList)`
-
-`
+const StyledMediaList = styled(MediaList)``;
 
 export default StyledMediaList;

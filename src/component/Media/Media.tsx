@@ -1,5 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { IMedia } from "../../types/Media";
+import Player from "../Player";
+import Modal from "../Modal";
 
 interface IMediaProps {
   media: IMedia;
@@ -7,14 +10,20 @@ interface IMediaProps {
 }
 
 const Media = ({ media, className }: IMediaProps) => {
-  const { title, images } = media;
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen((prev) => !prev);
+  const { title, images, description, mediaId } = media;
   const url = images.find(({ type }) => type === "FRAME")?.url;
+  console.log(open);
   return (
     <div className={className}>
-      <div className="container">
+      <div className="container"  onClick={handleOpen}>
         <img src={url} />
         <div className="title">{title}</div>
       </div>
+      {open && (
+        <Player mediaId={mediaId} />
+      )}
     </div>
   );
 };
@@ -26,6 +35,15 @@ const StyledMedia = styled(Media)`
   }
   .title {
     text-align: left;
+  }
+
+  .modal {
+    display: "flex";
+    justify-content: "center";
+    align-items: center;
+  }
+  .paper {
+    border: "2px solid #000";
   }
 `;
 
