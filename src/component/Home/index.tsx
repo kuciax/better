@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getMediaList } from "../../service/mediaApi";
+import { getMediaList } from "../../service/media";
 import MediaList from "../Media";
 const Home = () => {
   const dispatch = useDispatch();

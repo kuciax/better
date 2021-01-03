@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { getMediaPlayInfo } from "../../service/mediaApi";
+import { getMediaPlayInfo } from "../../service/media";
 
 interface IPlayerProps {
   className?: string;

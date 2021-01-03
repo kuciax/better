@@ -5,7 +5,7 @@ import store from "./store/store";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import Header from "./component/Header";
-import PrivateRoute from "./component/Router/PrivateRoute";
+import PrivateRoute from "./component/PrivateRoute";
 import route from "./shared/routes";
 
 function App() {
