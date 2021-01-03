@@ -23,7 +23,7 @@ const Media = ({ media, className }: IMediaProps) => {
       {open && (
         <Modal
           open={open}
-          onClose={handleOpen}
+          onClose={()=>setOpen(false)}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
         >

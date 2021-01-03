@@ -15,7 +15,6 @@ const StyledContainer = styled(Container)`
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
-    border: 3px solid #73AD21;
     `
 
 export default StyledContainer;

@@ -1,9 +1,8 @@
-import { getMediaListSucess } from "../store/actionCreators";
 import { IMedia } from "../types/Media";
 import { fetchMediaList } from "./api/mediaApi";
 import { getToken } from "./localStorage";
 
-export const getMediaList = () => async (dispatch: any) => {
+export const getMediaList = async () => {
   const token = getToken();
   const request = await fetchMediaList(token?.value);
 
@@ -13,7 +12,7 @@ export const getMediaList = () => async (dispatch: any) => {
       url: Url,
     }));
 
-  const mappedData: IMedia = request.data.Entities.map(
+  const mappedData: IMedia[] = request.data.Entities.map(
     ({ Title, Description, Images, Id }: any) => ({
       title: Title,
       description: Description,
@@ -22,7 +21,7 @@ export const getMediaList = () => async (dispatch: any) => {
     })
   );
 
-  return dispatch(getMediaListSucess(mappedData));
+  return mappedData;
 };
 
 export const getMediaPlayInfo = async (mediaId: string) => {

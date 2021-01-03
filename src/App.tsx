@@ -1,7 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./store/store";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import Header from "./component/Header";
@@ -12,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Provider store={store}>
         <Router>
           <Switch>
             <Route path={route.login}>
@@ -23,7 +20,6 @@ function App() {
             </PrivateRoute>
           </Switch>
         </Router>
-      </Provider>
     </div>
   );
 }
