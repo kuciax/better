@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { IMedia } from "../../types/Media";
 import Player from "../Player";
-import Modal from "../Modal";
+import {Modal} from "@material-ui/core"
 
 interface IMediaProps {
   media: IMedia;
@@ -17,12 +17,22 @@ const Media = ({ media, className }: IMediaProps) => {
   console.log(open);
   return (
     <div className={className}>
-      <div className="container"  onClick={handleOpen}>
+      <div className="container" onClick={handleOpen}>
         <img src={url} />
         <div className="title">{title}</div>
       </div>
       {open && (
-        <Player mediaId={mediaId} />
+
+
+<Modal
+open={open}
+onClose={handleOpen}
+aria-labelledby="simple-modal-title"
+aria-describedby="simple-modal-description"
+>
+<Player mediaId={mediaId} />
+</Modal>
+     
       )}
     </div>
   );

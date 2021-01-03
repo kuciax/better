@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { signIn } from "../../service/userApi";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import route from "../../shared/routes";
 
 interface ILoginProps {
   className?: string;
@@ -16,7 +17,7 @@ const Login = ({ className }: ILoginProps) => {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(signIn());
-    history.push("/about");
+    history.push(route.home);
   };
 
   return (

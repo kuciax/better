@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 interface IModalProps {
   className?: string;
-  children:JSX.Element
+  children: JSX.Element;
+  onClick: () => void;
 }
-const Modal = ({ className, children }: IModalProps) => (
+const Modal = ({ className, children, onClick }: IModalProps) => (
   <div id="myModal" className={className}>
     <div className="modal-content">
-      <span className="close">&times;</span>
+      <span className="close" onClick={onClick}>
+        &times;
+      </span>
       {children}
     </div>
   </div>
@@ -25,19 +28,18 @@ const StyledModal = styled(Modal)`
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4); 
   }
 
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%; 
   }
 
-  /* The Close Button */
   .close {
     color: #aaa;
     float: right;

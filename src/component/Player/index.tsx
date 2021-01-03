@@ -26,18 +26,16 @@ const Player = ({ className, mediaId }: IPlayerProps) => {
 
   return (
     <div className={className}>
-      <ReactPlayer
-        playing
-        controls
-        className="react-player"
-        url={url}
-        width="100%"
-        height="100%"
-      />
+      <ReactPlayer playing controls url={url} width="50%" height="50%" />
     </div>
   );
 };
 
-const StyledPlayer = styled(Player)``;
+const StyledPlayer = styled(Player)`
+  justify-content: center;
+  display: flex;
+  padding-top: 40px;
+`;
 
 export default StyledPlayer;
+    
