@@ -1,15 +1,14 @@
 import Login from "../../component/Login";
 import styled from "styled-components";
-import Container from "../../component/Container";
 
 interface ILoginPageProps {
   className?: string;
 }
 
 const LoginPage = ({ className }: ILoginPageProps) => (
-  <Container className={className}>
+  <div className={className}>
     <Login />
-  </Container>
+  </div>
 );
 
 const StyledLoginPage = styled(LoginPage)`

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { IMedia } from "../../types/Media";
+import { IMedia } from "../../type/Media";
 import Player from "../Player";
 import { Modal } from "@material-ui/core";
 
@@ -9,7 +9,7 @@ interface IMediaProps {
   className?: string;
 }
 
-const Media = ({ media, className }: IMediaProps) => {
+const MediaIcon = ({ media, className }: IMediaProps) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen((prev) => !prev);
   const { title, images, mediaId } = media;
@@ -17,27 +17,34 @@ const Media = ({ media, className }: IMediaProps) => {
   return (
     <div className={className}>
       <div className="container" onClick={handleOpen}>
-        <img alt={title} src={url} />
+        {url ? <img alt={title} src={url} /> : <div className="placeholder" />}
         <div className="title">{title}</div>
       </div>
       {open && (
         <Modal
           open={open}
-          onClose={()=>setOpen(false)}
+          onClose={handleOpen}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
         >
-          <Player mediaId={mediaId} />
+          <Player mediaId={mediaId} onClose={handleOpen} />
         </Modal>
       )}
     </div>
   );
 };
 
-const StyledMedia = styled(Media)`
+const StyledMediaIcon = styled(MediaIcon)`
   img {
-    width: 480px;
-    height: 270px;
+    border-radius: 8px;
+    width: 320px;
+    height: 180px;
+  }
+  .placeholder {
+    border-radius: 8px;
+    background-color: gray;
+    width: 320px;
+    height: 180px;
   }
   .title {
     text-align: left;
@@ -51,6 +58,12 @@ const StyledMedia = styled(Media)`
   .paper {
     border: "2px solid #000";
   }
+  .container {
+    :hover {
+      cursor: pointer;
+      opacity: 0.3;
+    }
+  }
 `;
 
-export default StyledMedia;
+export default StyledMediaIcon;

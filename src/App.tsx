@@ -1,15 +1,17 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
+import LoginPage from "./page/LoginPage";
+import HomePage from "./page/HomePage";
 import Header from "./component/Header";
 import PrivateRoute from "./component/PrivateRoute";
 import route from "./shared/routes";
+import { Container } from "@material-ui/core";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Container>
+        <Header />
         <Router>
           <Switch>
             <Route path={route.login}>
@@ -20,6 +22,7 @@ function App() {
             </PrivateRoute>
           </Switch>
         </Router>
+      </Container>
     </div>
   );
 }

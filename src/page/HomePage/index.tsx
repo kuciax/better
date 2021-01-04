@@ -1,15 +1,14 @@
 import Home from "../../component/Home";
 import styled from "styled-components";
-import Container from "../../component/Container";
 
 interface IHomePageProps {
   className?: string;
 }
 
 const HomePage = ({ className }: IHomePageProps) => (
-  <Container className={className}>
+  <div className={className}>
     <Home />
-  </Container>
+  </div>
 );
 
 const StyledHomePage = styled(HomePage)`

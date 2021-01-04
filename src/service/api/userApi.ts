@@ -6,4 +6,10 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-export const fetchSignIn = () => axios.post(url, { headers });
+const getData = (username: string, password: string) => ({
+  Username: username,
+  Password: password,
+});
+
+export const fetchSignIn = (username: string, password: string) =>
+  axios.post(url, { ...getData(username, password) }, { headers });

@@ -4,5 +4,5 @@ export interface IMedia {
   title: string;
   description: string;
   images: IImage[];
-  mediaId:string;
+  mediaId: string;
 }

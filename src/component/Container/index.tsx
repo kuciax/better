@@ -1,20 +1,20 @@
+import { Container as MaterialContainer } from "@material-ui/core";
 import styled from "styled-components";
 
 interface IContainerProps {
-    className?: string;
-    children: JSX.Element;
+  className?: string;
+  children: JSX.Element;
 }
 
 const Container = ({ className, children }: IContainerProps) => (
-    <div className={className}>
-        {children}
-    </div>
+  <MaterialContainer maxWidth="xl">
+    <div className={className}>{children}</div>
+  </MaterialContainer>
 );
 
 const StyledContainer = styled(Container)`
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    `
+  display: flex;
+  justify-content: center;
+`;
 
 export default StyledContainer;

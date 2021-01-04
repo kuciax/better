@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const url = "https://thebetter.bsgroup.eu/Media/GetMediaList";
-const urlInfo = "https://thebetter.bsgroup.eu/Media/GetMediaPlayInfo";
+const mediaUrl = "https://thebetter.bsgroup.eu/Media";
 
 const getHeaders = (token: string) => ({
   "Content-Type": "application/json",
@@ -9,17 +8,24 @@ const getHeaders = (token: string) => ({
   Authorization: `Bearer ${token}`,
 });
 
-const data = {
-  MediaListId: 2,
+const getData = (mediaListId: number) => ({
+  MediaListId: mediaListId,
   IncludeCategories: false,
   IncludeImages: true,
   IncludeMedia: false,
   PageNumber: 1,
-  PageSize: 10,
-};
+  PageSize: 15,
+});
 
-export const fetchMediaList = (tokenValue: string) =>
-  axios.post(url, { ...data }, { headers: getHeaders(tokenValue) });
+export const fetchMediaList = (tokenValue: string, mediaListId: number) =>
+  axios.post(
+    `${mediaUrl}/GetMediaList`,
+    { ...getData(mediaListId) },
+    { headers: getHeaders(tokenValue) }
+  );
 
 export const fetchMediaPlayInfo = (tokenValue: string, mediaId: string) =>
-  axios.get(urlInfo, { headers: getHeaders(tokenValue), params: { mediaId } });
+  axios.get(`${mediaUrl}/GetMediaPlayInfo`, {
+    headers: getHeaders(tokenValue),
+    params: { mediaId },
+  });

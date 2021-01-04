@@ -1,36 +1,37 @@
-import { IMedia } from "../types/Media";
-import { fetchMediaList } from "./api/mediaApi";
+import { IMedia } from "../type/Media";
+import { fetchMediaList, fetchMediaPlayInfo } from "./api/mediaApi";
 import { getToken } from "./localStorage";
 
-export const getMediaList = async () => {
+ // TODO Add types to API
+
+export const getMediaList = async (mediaListId: number) => {
   const token = getToken();
-  const request = await fetchMediaList(token?.value);
+  if (token) {
+    const request = await fetchMediaList(token.value, mediaListId);
 
-  const mapImages = (Images: any) =>
-    Images.map(({ ImageTypeCode, Url }: any) => ({
-      type: ImageTypeCode,
-      url: Url,
-    }));
+    const mapImages = (Images: any) =>
+      Images.map(({ ImageTypeCode, Url }: any) => ({
+        type: ImageTypeCode,
+        url: Url,
+      }));
 
-  const mappedData: IMedia[] = request.data.Entities.map(
-    ({ Title, Description, Images, Id }: any) => ({
-      title: Title,
-      description: Description,
-      images: mapImages(Images),
-      mediaId: Id,
-    })
-  );
+    const mappedData: IMedia[] = request?.data?.Entities.map(
+      ({ Title, Description, Images, Id }: any) => ({
+        title: Title,
+        description: Description,
+        images: mapImages(Images),
+        mediaId: Id,
+      })
+    );
 
-  return mappedData;
+    return mappedData;
+  }
 };
 
 export const getMediaPlayInfo = async (mediaId: string) => {
-  // TODO fix api
-
-  // const request = await axios.get(
-  //   urlInfo,
-  //   { headers: getHeaders(token), params: { mediaId} }
-  // );
-  // return request.data.ContentUrl;
-  return "https://cd-stream-od.telenorcdn.net/tnfbaod/SF/585db4b3e4b09db0cf348a64/dash_a1.ism/playlist.mpd";
+  const token = getToken();
+  if (token) {
+    const request = await fetchMediaPlayInfo(token.value, mediaId);
+    return request?.data?.ContentUrl;
+  }
 };
