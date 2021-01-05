@@ -2,7 +2,7 @@
 
 exports[`When testing Login should properly render and match snapshot 1`] = `
 <div
-  class="sc-bdfBwQ btTsfG"
+  class="sc-bdfBwQ OBXWE"
 >
   <h4
     class="MuiTypography-root MuiTypography-h4"
