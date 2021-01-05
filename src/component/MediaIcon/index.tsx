@@ -49,7 +49,6 @@ const StyledMediaIcon = styled(MediaIcon)`
   .title {
     text-align: left;
   }
-
   .modal {
     display: "flex";
     justify-content: "center";

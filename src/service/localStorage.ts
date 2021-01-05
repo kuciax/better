@@ -1,4 +1,4 @@
-import { IToken } from "../type/token";
+import { IToken } from "../type/Token";
 
 const key = "better";
 

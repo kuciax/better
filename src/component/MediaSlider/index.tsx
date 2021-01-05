@@ -30,11 +30,9 @@ const StyledMediaSlider = styled(MediaSlider)`
   .title {
     text-align: left;
   }
-
   .facet_sidebar {
     display: none;
   }
-
   .slider {
     padding: 0px 5px 0 5px;
     max-width: 1024px;

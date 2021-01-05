@@ -61,16 +61,13 @@ const StyledLogin = styled(Login)`
   .form {
     display: flex;
     flex-direction: column;
-
     button {
       margin-top: 56px;
     }
   }
-
   p {
     margin-bottom: 48px;
   }
-
   .username {
     margin-bottom: 16px;
   }

@@ -58,16 +58,11 @@ const StyledPlayer = styled(Player)`
     background-color: wheat;
   }
   .close {
-    color: black
-    float: right;
+    color: black;
     font-size: 28px;
     font-weight: bold;
   }
-
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
+  .close:hover {
     cursor: pointer;
   }
 `;
