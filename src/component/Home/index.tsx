@@ -37,8 +37,8 @@ const Home = ({ className }: IMediaList) => {
 
   return (
     <div className={className}>
-      <MediaSlider mediaList={mediaListFirst} title="Top 10 Poland" />
-      <MediaSlider mediaList={mediaListSecond} title="Top 10 UK" />
+      <MediaSlider mediaList={mediaListFirst} title="Top movies in Poland" />
+      <MediaSlider mediaList={mediaListSecond} title="Top movies in UK" />
     </div>
   );
 };

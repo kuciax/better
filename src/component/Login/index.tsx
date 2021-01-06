@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { signIn } from "../../service/user";
 import { useHistory } from "react-router";
-import route from "../../shared/routes";
+import route from "../../constant/routes";
 import { ChangeEvent, useState } from "react";
 
 interface ILoginProps {

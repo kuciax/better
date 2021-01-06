@@ -7,7 +7,11 @@ interface IPrivateRouteProps {
   path: string;
 }
 
-const PrivateRoute = ({ children, redirect, ...rest }: IPrivateRouteProps) => {
+const PrivateRoute = ({
+  children,
+  redirect,
+  ...rest
+}: IPrivateRouteProps): JSX.Element => {
   return (
     <Route
       {...rest}

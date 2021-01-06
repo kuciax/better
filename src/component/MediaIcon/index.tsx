@@ -27,7 +27,10 @@ const MediaIcon = ({ media, className }: IMediaProps) => {
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
         >
-          <Player mediaId={mediaId} onClose={handleOpen} />
+          {/*  because of ref warning */}
+          <>
+            <Player mediaId={mediaId} className="player" />
+          </>
         </Modal>
       )}
     </div>
@@ -37,14 +40,14 @@ const MediaIcon = ({ media, className }: IMediaProps) => {
 const StyledMediaIcon = styled(MediaIcon)`
   img {
     border-radius: 8px;
-    width: 320px;
-    height: 180px;
+    width: 240px;
+    height: 135px;
   }
   .placeholder {
     border-radius: 8px;
     background-color: gray;
-    width: 320px;
-    height: 180px;
+    width: 240px;
+    height: 135px;
   }
   .title {
     text-align: left;
@@ -61,6 +64,10 @@ const StyledMediaIcon = styled(MediaIcon)`
     :hover {
       cursor: pointer;
       opacity: 0.3;
+    }
+    .player {
+      position: absolute;
+      width: 400 px;
     }
   }
 `;

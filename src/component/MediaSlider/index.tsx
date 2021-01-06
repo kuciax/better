@@ -35,7 +35,7 @@ const StyledMediaSlider = styled(MediaSlider)`
   }
   .slider {
     padding: 0px 5px 0 5px;
-    max-width: 1024px;
+    max-width: 900px;
     display: flex;
     overflow-x: auto;
   }

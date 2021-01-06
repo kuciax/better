@@ -4,10 +4,10 @@ import LoginPage from "./page/LoginPage";
 import HomePage from "./page/HomePage";
 import Header from "./component/Header";
 import PrivateRoute from "./component/PrivateRoute";
-import route from "./shared/routes";
+import route from "./constant/routes";
 import { Container } from "@material-ui/core";
 
-function App() {
+function App() : JSX.Element {
   return (
     <div className="App">
       <Container>

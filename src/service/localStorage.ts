@@ -2,21 +2,21 @@ import { IToken } from "../type/Token";
 
 const key = "better";
 
-export const setToken = (token: string, tokenExpires: string) => {
+export const setToken = (token: string, tokenExpires: string): void => {
   localStorage.setItem(
     key,
     JSON.stringify({ value: token, expires: new Date(tokenExpires) })
   );
 };
 
-export const getToken = () => {
+export const getToken = (): IToken | undefined => {
   const token = localStorage.getItem(key);
   if (token) {
     return JSON.parse(token) as IToken;
   }
 };
 
-export const isTokenValid = () => {
+export const isTokenValid = () : boolean => {
   const token = getToken();
   const nowTime = new Date().getTime();
   if (token) {
